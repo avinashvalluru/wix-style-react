@@ -232,11 +232,7 @@ class FormField extends React.Component {
         )}
       >
         {label && labelPlacement === PLACEMENT.top && (
-          <div
-            className={classnames(styles.label, {
-              [styles.minLabelHeight]: !children,
-            })}
-          >
+          <div {...styles('label', { minLabelHeight: !children })}>
             {this._renderLabel({ trimLongText: true })}
             {required && asterisk}
             {this._renderInfoIcon()}

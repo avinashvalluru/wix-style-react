@@ -54,7 +54,11 @@
   flex-grow: 1;
 }
 
-.minLabelHeight {
+.label {
+  -st-states: minLabelHeight;
+}
+
+.label:minLabelHeight {
   min-height: value(inlineLabelMinHeight);
   line-height: value(inlineLabelMinHeight);
 }
