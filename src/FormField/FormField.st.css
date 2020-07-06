@@ -36,17 +36,30 @@
 }
 
 .children {
+  -st-states: labelPlacement(enum(top, left, right)), childrenWithInlineLabel;
   flex: 0 0 100%;
   max-width: 100%;
 }
 
-.children.childrenWithInlineLabel {
+.children:labelPlacement(top) {
+  padding-top: value(childrenMargin);
+}
+
+.children:labelPlacement(right):childrenWithInlineLabel {
+  padding-right: value(suffixHorizontalPadding);
+}
+
+.children:labelPlacement(left):childrenWithInlineLabel {
+  padding-left: value(suffixHorizontalPadding);
+}
+
+.children:childrenWithInlineLabel {
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
 }
 
-.children.childrenWithInlineLabel .suffix {
+.children:childrenWithInlineLabel .suffix {
   margin-bottom: value(childrenMargin);
 }
 
@@ -70,24 +83,12 @@
   max-width: 100%;
 }
 
-.root:labelPlacement(top) .children {
-  padding-top: value(childrenMargin);
-}
-
 .root:labelPlacement(right) {
   flex-direction: row;
 }
 
-.root:labelPlacement(right) .childrenWithInlineLabel {
-  padding-right: value(suffixHorizontalPadding);
-}
-
 .root:labelPlacement(left) {
   flex-direction: row-reverse;
-}
-
-.root:labelPlacement(left) .childrenWithInlineLabel {
-  padding-left: value(suffixHorizontalPadding);
 }
 
 .root:labelAlignment(middle) {

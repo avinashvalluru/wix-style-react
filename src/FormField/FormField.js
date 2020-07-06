@@ -243,8 +243,9 @@ class FormField extends React.Component {
         {children && (
           <div
             data-hook={dataHooks.children}
-            className={classnames(styles.children, {
-              [styles.childrenWithInlineLabel]:
+            {...styles('children', {
+              labelPlacement,
+              childrenWithInlineLabel:
                 !label || this._hasInlineLabel(label, labelPlacement),
             })}
           >
