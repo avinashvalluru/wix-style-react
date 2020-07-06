@@ -225,14 +225,11 @@ class FormField extends React.Component {
     return (
       <div
         data-hook={dataHook}
-        className={classnames(styles.root, {
-          [styles.labelFromTop]: label && labelPlacement === PLACEMENT.top,
-          [styles.labelFromLeft]: label && labelPlacement === PLACEMENT.left,
-          [styles.labelFromRight]: label && labelPlacement === PLACEMENT.right,
-          [styles.labelAlignMiddle]: label && labelAlignment === ALIGN.middle,
-          [styles.labelAlignTop]: label && labelAlignment === ALIGN.top,
-          [styles.stretchContent]: stretchContent,
-        })}
+        {...styles(
+          'root',
+          { labelPlacement, labelAlignment, stretchContent },
+          this.props,
+        )}
       >
         {label && labelPlacement === PLACEMENT.top && (
           <div

@@ -17,6 +17,7 @@
 }
 
 .root {
+  -st-states: labelPlacement(enum(top, left, right)), labelAlignment(enum(top, middle)) , stretchContent;
   display: inline-flex;
   flex-wrap: wrap;
   font-size: initial;
@@ -26,11 +27,11 @@
   margin: auto 0;
 }
 
-.root.stretchContent {
+.root:stretchContent {
   display: flex;
 }
 
-.root.stretchContent .children {
+.root:stretchContent .children {
   flex-grow: 1;
 }
 
@@ -49,7 +50,7 @@
   margin-bottom: value(childrenMargin);
 }
 
-.children.stretchContent {
+.children:stretchContent {
   flex-grow: 1;
 }
 
@@ -58,38 +59,38 @@
   line-height: value(inlineLabelMinHeight);
 }
 
-.labelFromTop .label {
+.root:labelPlacement(top) .label {
   display: flex;
   align-items: center;
   flex: 1 0 auto;
   max-width: 100%;
 }
 
-.labelFromTop .children {
+.root:labelPlacement(top) .children {
   padding-top: value(childrenMargin);
 }
 
-.labelFromRight {
+.root:labelPlacement(right) {
   flex-direction: row;
 }
 
-.labelFromRight .childrenWithInlineLabel {
+.root:labelPlacement(right) .childrenWithInlineLabel {
   padding-right: value(suffixHorizontalPadding);
 }
 
-.labelFromLeft {
+.root:labelPlacement(left) {
   flex-direction: row-reverse;
 }
 
-.labelFromLeft .childrenWithInlineLabel {
+.root:labelPlacement(left) .childrenWithInlineLabel {
   padding-left: value(suffixHorizontalPadding);
 }
 
-.labelAlignMiddle {
+.root:labelAlignment(middle) {
   align-items: center;
 }
 
-.labelAlignTop {
+.root:labelAlignment(top) {
   align-items: start;
 }
 
