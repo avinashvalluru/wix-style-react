@@ -1,4 +1,3 @@
-import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import InfoIcon from '../InfoIcon';
@@ -164,9 +163,9 @@ class FormField extends React.Component {
     return (
       <div
         data-hook={dataHooks.labelIndicators}
-        className={classnames(styles.labelIndicators, {
-          [styles.minLabelHeight]: !children,
-          [styles.inlineWithSuffix]: suffix || this._hasCharCounter(),
+        {...styles('labelIndicators', {
+          minLabelHeight: !children,
+          inlineWithSuffix: suffix || this._hasCharCounter(),
         })}
       >
         {this._renderLabel({ trimLongText: false })}

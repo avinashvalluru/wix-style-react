@@ -113,11 +113,12 @@
 }
 
 .labelIndicators {
+  -st-states: minLabelHeight, inlineWithSuffix;
   display: flex;
   align-items: center;
 }
 
-.labelIndicators.inlineWithSuffix {
+.labelIndicators:inlineWithSuffix {
   /* Aligns the inline label on the top in case the suffix (whether custom or the char counter) appears */
   margin-top: calc(value(suffixHeight) + value(childrenMargin));
 }
