@@ -36,7 +36,7 @@
 }
 
 .children {
-  -st-states: labelPlacement(enum(top, left, right)), childrenWithInlineLabel;
+  -st-states: labelPlacement(enum(top, left, right)), childrenWithInlineLabel, stretchContent;
   flex: 0 0 100%;
   max-width: 100%;
 }
