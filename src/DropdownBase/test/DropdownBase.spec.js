@@ -199,16 +199,16 @@ describe('DropdownBase', () => {
     expect(await driver.isDropdownShown()).toEqual(true);
   });
 
-  it('should pass isOpen = true when opening the items list', async () => {
-    let isListOpen;
+  it('should pass correct isOpen when rendering', async () => {
+    let isListOpen = undefined;
 
     const targetDataHook = 'myOpenButton';
     const driver = createDriver(
       <DropdownBase {...defaultProps}>
-        {({ open, isOpen }) => {
+        {({ toggle, isOpen }) => {
           isListOpen = isOpen;
           return (
-            <IconButton dataHook={targetDataHook} onClick={open}>
+            <IconButton dataHook={targetDataHook} onClick={toggle}>
               <ChevronDown />
             </IconButton>
           );
@@ -216,8 +216,13 @@ describe('DropdownBase', () => {
       </DropdownBase>,
     );
 
+    expect(isListOpen).toBeFalsy();
+
     await driver.clickTargetElement(targetDataHook);
     expect(isListOpen).toEqual(true);
+
+    await driver.clickTargetElement(targetDataHook);
+    expect(isListOpen).toEqual(false);
   });
 
   it('should show drop down when hover on target element', async () => {
