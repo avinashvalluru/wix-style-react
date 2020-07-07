@@ -15,6 +15,7 @@ The `<DropdownBase/>` can accept two types of children:
   | `open(e)` | `Function` | A function that will open the items list. Can be called only when in "Uncontrolled" mode. |
   | `close(e)` | `Function` | A function that will close the items list. Can be called only when in "Uncontrolled" mode. |
   | `toggle(e)` | `Function` | A function that will toggle the items list. Can be called only when in "Uncontrolled" mode. |
+  | `isOpen` | `Boolean` | Indicates whether the items list is currently open.  |
   | `delegateKeyDown(e)` | `Function` | The underlying `<DropdownLayout/>`'s `keydown` handler. It can be called inside another `keydown` event in order to delegate it (can be useful when using the "Controlled" mode). |
   | `selectedOption` | `{ id: any, value: any }`, `null` | The value of the selected option. |
 

@@ -295,7 +295,7 @@ class DropdownBase extends React.PureComponent {
 
   _renderChildren() {
     const { children } = this.props;
-    const { selectedId } = this.state;
+    const { selectedId, open: isOpen } = this.state;
 
     if (!children) {
       return null;
@@ -307,6 +307,7 @@ class DropdownBase extends React.PureComponent {
           open: this._open,
           close: this._close,
           toggle: this._toggle,
+          isOpen,
 
           delegateKeyDown: this._delegateKeyDown,
 

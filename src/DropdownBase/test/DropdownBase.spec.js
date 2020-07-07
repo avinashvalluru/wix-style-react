@@ -199,6 +199,28 @@ describe('DropdownBase', () => {
     expect(await driver.isDropdownShown()).toEqual(true);
   });
 
+  it('should pass isOpen = true when opening the items list', async () => {
+    let isListOpen;
+
+    const targetDataHook = 'myOpenButton';
+    const driver = createDriver(
+      <DropdownBase {...defaultProps}>
+        {({ open, isOpen }) => {
+          isListOpen = isOpen;
+          return (
+            <IconButton dataHook={targetDataHook} onClick={open}>
+              <ChevronDown />
+            </IconButton>
+          );
+        }}
+      </DropdownBase>,
+    );
+
+    await driver.clickTargetElement(targetDataHook);
+    await driver.isDropdownShown();
+    expect(isListOpen).toEqual(true);
+  });
+
   it('should show drop down when hover on target element', async () => {
     const onMouseLeaveFn = jest.fn();
 
