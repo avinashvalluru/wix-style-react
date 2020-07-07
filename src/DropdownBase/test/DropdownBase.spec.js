@@ -217,7 +217,6 @@ describe('DropdownBase', () => {
     );
 
     await driver.clickTargetElement(targetDataHook);
-    await driver.isDropdownShown();
     expect(isListOpen).toEqual(true);
   });
 
